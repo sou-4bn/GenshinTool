@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>原神 自分用ツール</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- 共通ヘッダー -->
+  <header class="header">
+    <div class="container header__inner">
+      <div>
+        <h1 class="header__title">原神 自分用ツール</h1>
+        <p class="header__subtitle">週ボス素材と原石をまとめて管理</p>
+      </div>
+
+      <!-- 右上：データ操作 -->
+      <div class="header__actions">
+        <button class="btn btn--ghost" id="btnExport">エクスポート</button>
+        <button class="btn btn--ghost" id="btnImport">インポート</button>
+        <button class="btn btn--danger" id="btnReset">リセット</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 共通ナビ -->
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a class="nav__link" href="#/home" id="navHome">ホーム</a>
+      <a class="nav__link" href="#/weekly-boss" id="navWeekly">週ボス素材</a>
+      <a class="nav__link" href="#/primogem" id="navPrimo">原石計算</a>
+    </div>
+  </nav>
+
+  <!-- ここに各ページが描画される -->
+  <main class="container" id="app"></main>
+
+  <!-- モーダル（インポート用） -->
+  <dialog class="dialog" id="importDialog">
+    <form method="dialog" class="dialog__content">
+      <h3 class="dialog__title">インポート（JSON）</h3>
+      <p class="muted">エクスポートしたJSONを貼り付けて「適用」</p>
+      <textarea class="textarea" id="importTextarea" rows="10" placeholder="ここにJSONを貼り付け"></textarea>
+
+      <div class="dialog__actions">
+        <button class="btn btn--ghost" value="cancel">キャンセル</button>
+        <button class="btn" id="btnImportApply" value="ok">適用</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="muted">データはこの端末のブラウザに保存されます（localStorage）</span>
+    </div>
+  </footer>
+
+  <!-- JS（順序が大事） -->
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/data/weeklyBossDrops.js"></script>
+  <script src="js/pages/home.js"></script>
+  <script src="js/pages/weeklyBoss.js"></script>
+  <script src="js/pages/primogem.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

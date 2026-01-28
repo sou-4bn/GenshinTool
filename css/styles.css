@@ -1,0 +1,258 @@
+/* =========================
+   基本設定（見た目の土台）
+   ========================= */
+
+:root{
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+
+  --accent: #4f6ef7;
+  --accent-weak: #e8edff;
+
+  --danger: #ef4444;
+  --danger-weak: #ffecec;
+
+  --shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body{
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.muted{ color: var(--muted); }
+
+/* =========================
+   ヘッダー・ナビ
+   ========================= */
+
+.header{
+  background: linear-gradient(180deg, #ffffff, #f7f9ff);
+  border-bottom: 1px solid var(--border);
+}
+
+.header__inner{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.header__title{
+  margin: 0;
+  font-size: 20px;
+}
+
+.header__subtitle{
+  margin: 6px 0 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.header__actions{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nav{
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav__inner{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav__link{
+  text-decoration: none;
+  color: var(--muted);
+  padding: 10px 12px;
+  border-radius: 999px;
+  transition: 0.15s;
+}
+
+.nav__link:hover{ background: #f1f5f9; }
+
+.nav__link.is-active{
+  color: var(--text);
+  background: var(--accent-weak);
+  border: 1px solid #dbe3ff;
+}
+
+/* =========================
+   カード・ボタン
+   ========================= */
+
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.card + .card{ margin-top: 14px; }
+
+.btn{
+  border: none;
+  border-radius: 12px;
+  padding: 9px 12px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn--ghost{
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn--danger{
+  background: var(--danger);
+  color: #fff;
+}
+
+.btn:disabled{
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* =========================
+   フォーム
+   ========================= */
+
+.form-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 820px){
+  .form-grid{ grid-template-columns: 1fr 1fr; }
+}
+
+.field label{
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.input, .select, .textarea{
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: #fff;
+}
+
+.checkbox-row{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* =========================
+   テーブル（スマホ崩れ防止）
+   ========================= */
+
+.table-wrap{
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+table{
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 720px; /* スマホで潰れないよう保険 */
+  background: #fff;
+}
+
+th, td{
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  font-size: 14px;
+}
+
+th{
+  color: var(--muted);
+  font-weight: 700;
+  background: #f8fafc;
+}
+
+td:first-child, th:first-child{
+  text-align: left;
+  font-weight: 700;
+}
+
+.cell-input{
+  width: 72px;
+  text-align: right;
+}
+
+tr.is-min-total{ background: var(--danger-weak); }
+tr.is-drop-match{ outline: 2px solid #bfd0ff; background: #f6f8ff; }
+
+/* =========================
+   ダイアログ
+   ========================= */
+
+.dialog{
+  border: none;
+  border-radius: 16px;
+  padding: 0;
+  width: min(720px, 92vw);
+}
+
+.dialog__content{
+  padding: 16px;
+}
+
+.dialog__title{
+  margin: 0 0 6px 0;
+}
+
+.dialog__actions{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* =========================
+   フッター
+   ========================= */
+
+.footer{
+  margin-top: 20px;
+  padding-bottom: 18px;
+}
+
+.footer__inner{
+  text-align: center;
+}
